@@ -1,10 +1,10 @@
-import React, { useState, Fragment } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, {useState, Fragment} from 'react';
+import {Link, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile';
+import {connect} from 'react-redux';
+import {createProfile} from '../../actions/profile';
 
-const CreateProfile = ({ createProfile, history }) => {
+const CreateProfile = ({createProfile, history}) => {
   const [formData, setFormData] = useState({
     company: '',
     website: '',
@@ -38,7 +38,7 @@ const CreateProfile = ({ createProfile, history }) => {
   } = FormData;
 
   const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({...formData, [e.target.name]: e.target.value});
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +55,12 @@ const CreateProfile = ({ createProfile, history }) => {
       <small>* = required field</small>
       <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
-          <select name='status' value={status} onChange={(e) => onChange(e)}>
+          <select
+            name='status'
+            value={status}
+            onChange={(e) => onChange(e)}
+            required
+          >
             <option value='0'>* Select Professional Status</option>
             <option value='Developer'>Developer</option>
             <option value='Junior Developer'>Junior Developer</option>
@@ -113,6 +118,7 @@ const CreateProfile = ({ createProfile, history }) => {
             name='skills'
             value={skills}
             onChange={(e) => onChange(e)}
+            required
           />
           <small className='form-text'>
             Please use comma separated values (eg. HTML,CSS,JavaScript,PHP)
@@ -224,4 +230,4 @@ CreateProfile.propTypes = {
   createProfile: PropTypes.func.isRequired,
 };
 
-export default connect(null, { createProfile })(withRouter(CreateProfile));
+export default connect(null, {createProfile})(withRouter(CreateProfile));

@@ -8,7 +8,7 @@ const ProfileTop = ({
     location,
     website,
     social,
-    user: { name, avatar },
+    user: {name, avatar},
   },
 }) => {
   return (
@@ -23,7 +23,7 @@ const ProfileTop = ({
       <div className='icons my-1'>
         {website && (
           <a href={website} target='_blank' rel='noopener noreferrer'>
-            <i className='fas fa-globe fa-2x'></i>W
+            <i className='fas fa-globe fa-2x'></i>
           </a>
         )}
 
